@@ -1,0 +1,589 @@
+
+8:16 2014/10/11
+
+
+【对象类型】
+
+     对象是一组数据的集合，对象类型不受类型的限制。
+
+     对象包括：
+
+	【函数】（包含可执行代码）、
+	【数组】（有序列表）、
+	【对象】（属性的无序集合）。
+     
+     	【函数的基本特点】：1.可以向函数传递任意参数。
+
+			   参数又分为：形参（表达式当中所涉及的参数）和 实参（函数在调用过程中使用的函数）。
+
+			   参数有可以分为常量参数和变量参数。
+     
+			   2.可以用return语句返回值，其返回值类型不需要明确说明。
+
+			   3.可以把函数作为参数传递给另外一个函数
+
+【arguments对象】
+
+     函数可以接受任意个数的参数，实参少于形参，多余的形参默认为undefined；实参多余形参，多余的实参将被忽略
+     
+     arguments.length 可以检测函数的参数个数，也可以模拟函数重载
+
+     callee属性返回正在执行的function对象，表示对函数本身的一个引用。
+
+     callee拥有length属性，
+	
+	※ arguments.length是实参长度 ※
+
+	※ arguments.callee.length是形参长度 ※
+
+【匿名函数】
+
+
+     没有名字的函数，是匿名函数，也称一次性函数。只能使用一次。
+
+     有名函数定义可以出现在调用之后，匿名函数必须在调用之前定义。
+
+【数组】即，一组有顺序的数据
+
+	数组的属性：
+
+
+
+	//定义数组方法一
+		var pet = new Array("cat","dog","snake");
+		document.write(pet[0] + "<br>" + pet[1] + "<br>" + pet[2] + "<br>" );
+
+	//定义数组方法二
+		var pet = new Array(3);
+		pet[0] = "cat";
+		pet[1] = "dog";
+		pet[2] = "snake";
+		document.write(pet[0] + "<br>" + pet[1] + "<br>" + pet[2] + "<br>" );
+
+
+	//定义数组方法三	
+		var pet = new Array();
+		pet[0] = "cat";
+		pet[1] = "dog";
+		pet[2] = "snake";
+		document.write(pet[0] + "<br>" + pet[1] + "<br>" + pet[2] + "<br>" );
+
+	//定义数组方法四	 通过直接量定义数组
+		var weekdays = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]	
+		document.write("今天是" + weekdays[(new Date()).getDay()] + new Date().getHours() + "点" );
+
+
+	【数组常用的方法】
+
+		join ：  此方法将数组元素组合为一个字符串
+		pop：    在从数组中删除最后一个元素之后返回该元素
+		push：   将一个或多个元素添加到数组末尾
+		reverse：反转数组元素：第一个数组元素变为最后一个，最后一个变为第一个
+		shift：  从数组中删除第一个元素并返回该元素
+		sort：   对数组元素进行排序（升序）  【将元素从小到大排序】
+     
+     
+
+
+
+
+
+16:53 2014/10/14
+
+
+
+
+【js有三种对象】：
+
+	【内部对象】：	js本身提供的已经定义好的对象，开发人员可以直接使用。例如：Date、Math、String.（用new声明就可以用了 ）
+
+	   【】常用的三个常用内部对象：
+
+		【字符String对象】:
+
+				toLowerCase()	将大写字母转换成小写	
+				toUpperCase()	将小写字母转换成小写	
+				concat()	链接数组或字符串	
+				indexOf() 	定义字符串中指定的字符首次出现的位置
+				lastIndexOf() 	定义字符串中指定的字符最后出现的位置
+				split()	分割字符串，根据指定的分隔符将字符串分割，并将分割后的每一部分作为数组元素存储到数组
+
+			   【使用子字符串】：有三种方法用于从字符串那种提取字符串。
+
+				slice（start，end）与substring用法相同
+				substring(start，end) 截取字符串，与slice用法差不多
+				substr(start,length) 未提取的开始位置索引（包括start字符），length为可选项，表示提取的字符串长度，缺省则取到末尾
+
+			   【子串查找】：
+
+				match() 查找字符串中特定字符，如果找到则返回这个字符
+
+			   【子串替换】
+
+			   	replace（） 在字符串中用指定字符替换其他字符
+
+		【日期Date对象】:date对象用于处理日期和时间
+
+			可以通过new关键词来定义Date对象。
+
+			【定义时间和日期方法】
+				一、var Dtime1 = new Date("Oct 12,2014 10:10:10"); 		//Date（月 日，年 时：分：秒）
+
+				二、var Dtime2 = new Date("Oct 12,2014");				//Date（月 日，年）
+
+				三、var Dtime3 = new Date("2014,10,16 10:10:10");		//Date（年，月，日，时：分：秒）
+
+				四、var Dtime4 = new Date(1000000000000);		//ms表示要创建的时间与GMT时间（1970年1月1日午夜）相差的毫秒
+
+			【parse方法】 
+
+				parse() 返回1970年1月1日午夜到指定日期（字符串）的毫秒数 
+
+				返回dateStr表示的时间与GMT时间相差的毫秒数
+
+				语法格式：Date.parse(dateStr)
+
+				document.write(Date.parse("1/1/2014") + "<br>");
+
+
+
+		【数学Math对象】
+				ceil()对数进行上舍入
+					document.write(Math.ceil(0.4) + "<br>");
+
+				floor对数进行下舍入
+					document.write(Math.floor(0.4) + "<br>");
+
+				round()四舍五入
+					document.write(Math.round(0.4) + "<br>");
+
+		【object对象】：在js中，每个新创建的对象都是object对象的实例，object对象所具有的所有属性和方法都会在任何对象中出现。
+
+				object对像的主要方法：
+
+				【toString（）】方法：返回字符串表示调用对戏那个的类型或值。
+
+					各种内部对象toString（）方法的返回值：
+
+					     Array（）对象：返回用逗号连接的表示数组个元素的字符串
+					     Date（）对象：返回日期的字符串表示
+					     Function（）对象：返回函数的定义
+					     String（）对象：返回String对象的相应类型
+
+				【valueOf（）方法】：返回调用对象
+
+					     Array（）对象：返回用逗号连接的表示数组个元素的字符串
+					     Date（）对象：返回1970年1月1日午夜到现在的毫秒数
+					     Function（）对象：返回函数本身
+					     String（）对象：返回String对象相应的字符串
+
+
+			【可以修改Object类型，让所有的对象具有一些通用的属性和方法】
+
+		
+
+
+	【宿主对象】：	执行js脚本环境所提供的对象，又称浏览器对象.例如：document和window等
+
+	【自定义对象】： 开发人员自己定义的对象
+
+				js不用通过创建一个类，然后实例化该类这种模式，对象的声明和定义即表示对象本身。
+
+				js通过new运算符创建对象：var oObject = new Object();
+
+
+			【工厂方式】：通过创建并返回特定类型对象的工厂函数
+
+					function createCar() {    
+					var oTempCar = new Object;
+   					 oTempCar.color = "blue";
+    					oTempCar.doors = 4;
+    					oTempCar.mpg = 25;
+   					 oTempCar.showColor = function() {
+       					 alert(this.color);
+   					 };
+   					 return oTempCar;		//工厂模式必须有这个返回值
+					}
+					var oCar1 = createCar();
+					var oCar2 = createCar();
+					oCar1.showColor();
+					oCar2.showColor();
+
+				//可以修改createCar（）函数，给他传递各个属性的默认值。
+
+					function createCar( sColor,iDoors,iMpg) {
+					    var oTempCar = new Object;
+					    oTempCar.color = sColor;;
+					    oTempCar.doors = iDoors;
+ 					   oTempCar.mpg = iMpg;
+ 					   oTempCar.showColor = function() {
+  					      alert(this.color + " " + this.doors + " " + this.mpg );
+  					  };
+   					 return oTempCar;		//工厂模式必须有这个返回值
+					}
+					var oCar1 = createCar("red",4,23);
+					var oCar2 = createCar("Green",3,25);
+					oCar1.showColor();	//输出red 4 23
+					oCar2.showColor();	//输出Green 3 25
+
+
+		【构造函数方式】：类名即构造函数的名字。
+
+			原型（prototype），是js特有的一个概念，通过使用原型，js可以建立其传统oo语言中的继承，从而体现对象的层次关系
+
+
+
+8:12 2014/10/21
+
+
+【DOM文档对象模型：document】
+
+【BOM浏览器对象模型】有多个对象组成，其中代表浏览器窗口的window对象时ＢＯＭ的顶层对象，其他对象都是该对象的子对象。
+
+我们可以从脚本中对　ＨＴＭＬ　页面中的所有元素进行访问
+
+【Document对象的信息属性】：
+
+	bgcolor背景色 
+	fgcolor前景色
+
+	domain 返回当前文档的域名
+	lastModified： 返回文档被最后修改的时间和日期
+	title： 返回当前文档的标题
+	URL： 返回当前文档的URL
+
+Document对象方法：
+
+open（）：打开一个文本返回对新的document对象的引用
+write（）：向文档写HTML表达式或js代码
+close（）：关闭一个打开的文档
+getElementById（）：返回拥有指定id的第一个对像的引用
+getElementsByName（）：返回带有指定名称的对象的集合
+getElementsByTagName（）：返回带有指定标签名的对象集合
+
+【document对象的子对象】：Document对象代表一个html文档，
+
+【Document对象集合】
+
+all[]：返回对文档中所有HTML元素的引用
+
+	all[]是一个类似数组的对象
+
+links[]：返回对文档中所有连接对象（<a>标记和<map>标记）的引用
+
+	links集合保存了文档中按照顺序一次出现的所有连接，每个数组元素就是link对象实例
+
+	常用属性：
+host[链接中的主机名和端口号]
+、hostname[链接中的主机名，例如www.sohu.com]
+、pathname[path部分]、port[端口号部分]
+、protocol[通讯协议部分]
+、search、target。
+
+anchors[]：返回对文档中所有Anchor对象（<a>标记）的引用
+forms[]:返回对文档中所有Form对象引用
+
+inmages[]:返回对文档中所有Image对象引用
+
+	imges[]数组保存文档按照顺序依次出现的所有《img》图像，每个imges[]数组元素就是Image对象的实例
+
+	属性：
+border
+complete：布尔型，表示图像是否已经加载完毕
+height
+hspace：图像左右水平距离，单位像素
+lowsrc：浏览器低分辨率时，设置替换图像
+name
+src
+vspace：图像上下垂直距离，单位像素
+width
+
+
+setInterval(函数名，间隔时间)
+
+          
+ 8:30 2014/10/23
+
+
+
+
+【window对象】    
+ 	【window对象常用属性】：
+
+closed		 返回窗口是否已被关闭。
+defaultStatus	 设置或返回窗口状态栏中的默认文本。 
+document 	 对 Document 对象的只读引用。请参阅 Document 对象。  
+history 	 对 History 对象的只读引用。请参数 History 对象。
+innerheight 	返回窗口的文档显示区的高度。
+innerwidth 	返回窗口的文档显示区的宽度。
+length 		设置或返回窗口中的框架数量。 
+location 	用于窗口或框架的 Location 对象。请参阅 Location 对象。
+name 		设置或返回窗口的名称。
+Navigator 	对 Navigator 对象的只读引用。请参数 Navigator 对象。
+opener 		返回对创建此窗口的窗口的引用。
+outerheight 	返回窗口的外部高度。
+outerwidth 	返回窗口的外部宽度。
+pageXOffset	设置或返回当前页面相对于窗口显示区左上角的 X 位置。
+pageYOffset 	设置或返回当前页面相对于窗口显示区左上角的 Y 位置。
+parent 		返回父窗口。
+Screen 		对 Screen 对象的只读引用。请参数 Screen 对象。 
+self 		返回对当前窗口的引用。等价于 Window 属性。 
+status		设置窗口状态栏的文本。 
+top 		返回最顶层的先辈窗口。
+window window 	属性等价于 self 属性，它包含了对窗口自身的引用。 
+
+screenLeft 
+screenTop 
+screenX 
+screenY 
+ 		只读整数。声明了窗口的左上角在屏幕上的的 x 坐标和 y 坐标。IE、Safari 和 Opera 支持 screenLeft 和 		screenTop，而 Firefox 和 Safari 支持 
+
+screenX 和 screenY。 
+    
+
+	【window对象方法】：
+
+alert() 	显示带有一段消息和一个确认按钮的警告框。
+blur() 		把键盘焦点从顶层窗口移开。 
+clearInterval() 取消由 setInterval() 设置的 timeout。 
+clearTimeout() 	取消由 setTimeout() 方法设置的 timeout。 
+close() 	关闭浏览器窗口。 
+confirm() 	显示带有一段消息以及确认按钮和取消按钮的对话框。  
+createPopup() 	创建一个 pop-up 窗口。
+focus() 	把键盘焦点给予一个窗口。
+moveBy() 	可相对窗口的当前坐标把它移动指定的像素。
+moveTo() 	把窗口的左上角移动到一个指定的坐标。 
+open() 		打开一个新的浏览器窗口或查找一个已命名的窗口。 
+print() 	打印当前窗口的内容。
+prompt() 	显示可提示用户输入的对话框。
+resizeBy() 	按照指定的像素调整窗口的大小。 
+resizeTo() 	把窗口的大小调整到指定的宽度和高度。 
+scrollBy() 	按照指定的像素值来滚动内容。 
+scrollTo() 	把内容滚动到指定的坐标。 
+setInterval() 	按照指定的周期（以毫秒计）来调用函数或计算表达式。
+setTimeout() 	在指定的毫秒数后调用函数或计算表达式。 
+
+
+
+1.打开关闭窗口
+	window.open（“参数1”，“参数2”，“参数3”）；
+	window.close（）；   
+     
+2.移动窗口位置
+将窗口移动到指定便宜位置x，y（绝对移动）
+
+
+3.改变窗口大小
+绝对改变大小（改变大小到多少）：
+window.resizeTo(width , height)
+相对改变大小(改变大小多少)
+window.resizeBy(dw,dh) (,)     
+4.在打开的窗口中传递数据   
+     
+
+【history对象】提供历史清单信息
+
+	【History 对象属性】
+
+length 	返回浏览器历史列表中的 URL 数量。
+
+	【History 对象方法】
+
+back()		 加载 history 列表中的前一个 URL。
+forward()	 加载 history 列表中的下一个 URL。  
+go() 		 加载 history 列表中的某个具体页面。
+
+
+
+【navigator对象】
+
+若果程序中有不能兼容多种浏览器的代码时，就需要用navigator对象进行浏览器版本检测，分别为不同的版本编写各自的代码
+
+	常用的属性和方法：
+
+appName ：	返回浏览器的名称。
+appVersion ：	返回浏览器的平台和版本信息。 
+appName ：	返回浏览器的名称。
+appVersion ：	返回浏览器的平台和版本信息。 
+userAgent ：	返回由客户机发送服务器的 user-agent 头部的值。 
+
+
+代表用户当前的屏幕。
+
+主要属性：
+
+availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)。
+availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)。
+bufferDepth 设置或返回调色板的比特深度。
+colorDepth 返回目标设备或缓冲器上的调色板的比特深度。 
+availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)。
+availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)。
+bufferDepth 设置或返回调色板的比特深度。 
+colorDepth 返回目标设备或缓冲器上的调色板的比特深度。 
+availHeight 返回显示屏幕的高度 (除 Windows 任务栏之外)。
+availWidth 返回显示屏幕的宽度 (除 Windows 任务栏之外)
+bufferDepth 设置或返回调色板的比特深度。 
+colorDepth 返回目标设备或缓冲器上的调色板的比特深度。 
+
+【Location对象】
+
+Location属性：
+
+hash 设置或返回从井号 (#) 开始的 URL（锚）。
+host 设置或返回主机名和当前 URL 的端口号。
+hostname 设置或返回当前 URL 的主机名。
+href 设置或返回完整的 URL。
+pathname 设置或返回当前 URL 的路径部分。 
+port 设置或返回当前 URL 的端口号。
+protocol 设置或返回当前 URL 的协议。
+search 设置或返回从问号 (?) 开始的 URL（查询部分）。 
+
+
+Location方法：
+
+assign() 	加载新的文档。 
+reload() 	重新加载当前文档。
+replace() 	用新的文档替换当前文档。 
+
+
+
+
+【事件处理】
+
+事件Event是可以被js侦测到的
+
+
+浏览器事件主要有：Load事件、Unload事件、Submit事件
+
+<body onload="alert('唉')" onbeforeunload="alert('哎呀')">
+
+//onload  打开页面加载，弹出  唉 
+//onbeforeunload  关闭页面是加载，弹出  哎呀
+
+
+鼠标事件
+
+MouseDown事件：当鼠标某一个键被按下时，会发生MouseDown事件。此事件不区分鼠标左右键
+MouseUp事件：与MouseDown事件相反。在鼠标的某一个键被释放时自动发生。此事件不区分鼠标左右键
+MouseMove事件：
+MouseOver事件：
+MosesOut事件：
+Click事件： 单机是onclick，双击是ondbclick；
+focus事件：当鼠标点击一个选择框，文本框或文本输入区域是，相应的对象就会得到焦点，focus时间就会发生。
+blur事件：与focus相反。
+
+
+键盘事件：
+
+keyDown事件：
+keyUp事件：
+keyPress事件：
+onchange事件：当文本域内容发生改变的时候事件发生。
+
+visibility：hidden 元素被隐藏但还在
+	  ：visibale 元素被隐藏但位置还在
+	  ：disable 元素看不见也不存在
+
+
+
+【js计时】
+
+setTimeout（）；
+setInterval（）；
+clearTimeout（）；
+
+
+【this运算】
+
+
+
+15:56 2014/10/27
+
+适用对象事件属性链接事件处理程序
+
+
+
+
+8:19 2014/10/28
+
+【Event对象】
+
+事件发生时，会产生一个临时对象Event。这个对象存储着事件行为的相关信息。
+
+产生event对象是一个线性的过程，当连续或同时有多个事件发生时，进会产生一个event对象。他和当前事件相关联，而不会对应多个事件产生多个event对象。
+
+在IE浏览器和firefox浏览器中使用方式不同
+
+	在IE中使用event对象是window对象的属性，可以直接引用
+
+	在firefox中，event对象必须被显式地传递给事件处理程序，他本身不是一个全局的概念
+
+
+【form对象】
+
+	属性：
+
+		action 设置或返回表单的 action 属性。 
+		length 返回表单中的元素数目。
+		method 设置或返回将数据发送到服务器的 HTTP 方法。 
+		name   设置或返回表单的名称。 
+		target 设置或返回表单提交结果的 Frame 或 Window 名 
+
+
+	方法：
+
+		reset() 把表单的所有输入元素重置为它们的默认值。
+		submit() 提交表单。 
+
+
+	在js中引用一个表单元素的两种方式：
+
+		var element=theform.elements[index];
+
+		var element=theform.element["elementName"];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
