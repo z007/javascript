@@ -1,0 +1,406 @@
+javascript  控制前端的行为
+JavaScript 是脚本语言
+JavaScript 是一种轻量级的编程语言。
+JavaScript 是可插入 HTML 页面的编程代码。
+JavaScript 插入 HTML 页面后，可由所有的现代浏览器执行。
+JavaScript 很容易学习。
+
+基于对象(不完全具备 继承 多态 封装)
+动态性
+弱类型
+对象:具有属性和方法
+
+JavaScript】由 (核心)ECMAscript、(文档对象模型)DOM、(浏览器对象模型)BOM 三部分组成
+
+	【对象】具有属性和方法的实体alert；
+
+	【javaScript】
+
+
+	【javaScript基本特点】：1.是一种基于对象的语言（js中“一切皆对象” ）
+
+					对象后面跟的属性和方法用点号“.”链接
+					对象的属性不带小括号（），方法要带小括号
+
+				2.是具有动态性的语言 动态性是指，在一个js对象中，其属性和方法可以动态生成
+						    
+				3.是一种弱类型的语言  (不是没有类型,类型根据上下文判断)
+
+
+noscript 防御性标签
+
+使用javascript 两种方法
+  1.嵌入式
+ 2.链入式
+
+
+javascript   建议放在head 之间
+              每句结尾 默认一条语句   用分号结束可是每行写更多语句
+     注释//  /**/
+   从上倒下执行
+ 事件驱动(鼠标 键盘 浏览器)
+
+
+
+
+
+HTML与与js文件编码方式 
+<script type="text/javascript" language="javascript" src="test.js" charset="gbk"></script>，这样的话浏览器就会以gbk的编码方式来解码js文件了。
+
+
+
+JavaScript  对话框
+弹出框:警告(alert) 提示
+确认(confirm) 确认或者取消
+提问(prompt)
+
++ 连字符   HTML标签 建议封闭
+
+变量对大小写敏感
+第一个字符必须是字母、下划线（_）或美元符号（$）
+余下的字符可以是下划线、美元符号或任何字母或数字字符
+避免使用单词缩写
+Camel(骆驼) 标记法
+首字母是小写的，接下来的字母都以大写字符开头。例如：
+var myTestValue = 0, mySecondValue = "hi";
+                 
+
+
+javascript数据类型
+基本
+    (字符串,建议使用统一的单引号或双引号 存在嵌套要单引号双引号并用)
+    数值 整数 和实数  javascript  所有数字都是浮点型  除数为0结果 是正负无穷 infinity
+0/0 为NAN (not  a unmber )
+   波尔类型  ture false
+
+typeof 检测变量类型
+特殊类型     undefined null
+对象类型 object ...
+
+
+运算符
+算数运算符
+关系
+逻辑
+字符串与数值进行比较 如果字符串 不能转换成数值 就转换为NaN 运算结果false
+操作数有一个为NaN 结果为false
+10和'3'比较  字符串转换成数组  和数字比较
+10和'3'相加   数字转换成字符串 var bResult =12 >"3"; ture
+条件
+
+myDate.setFullYear(2014,10,1);//设置日期格式
+
+字符串运算中
+字符串>数值>布尔
+
+
+隐式转换
+显示转换()
+
+
+<script type="text/javascript">
+
+document.write(parseInt("10") + "<br />") 
+document.write(parseInt("19",10) + "<br />") 
+document.write(parseInt("11",2) + "<br />") 
+document.write(parseInt("17",8) + "<br />") 
+document.write(parseInt("1f",16) + "<br />") 
+document.write(parseInt("010") + "<br />")
+document.write(parseInt("He was 40") + "<br />")
+
+</script>
+
+===绝对等于(值和类型)
+
+2014年10月8号
+操作数（常量、变量、函数、数组、语句）用运算符连接起来构成语句；
+
+【流程控制语句】
+	
+	分为三类：顺序、选择（分支）、循环
+	
+	【if语句】
+
+		.getHours();	//getHours取当前时间的小时数
+		.getDay（）；   //getDay获得一周的第几天
+
+
+	【if...else语句】
+	 [if ...else....if]
+	【switch语句】switch在最新标准中，switch语句可以用于字符串，而且case语句可以使用变量
+
+		语法格式：
+
+		switch(time){
+			case 13: document.write("sleep !!")
+			break;
+			case 14: document.write("Class !!")
+			break;
+			case 15: document.write("Drink !!")
+			break;
+			default: document.write("Paly !!")
+			break;
+			}
+
+		continue  终止当前循环从下一个循环开始
+
+	【for语句】for循环之前循环的次数已经确定   
+
+	【for...in语句】主要应用于遍历一个对象的所有属性或者一个数组的所有元素，for...in中的循环计数器包含了当前属性的名称或者当前数组元素的下表。
+
+	不确定次数用:		
+	【while语句】
+
+	do{} while();满不满足条件至少循环一次
+
+
+  							2014年10月11日
+            javascript面向对象(一)
+-对象类型:对象是一组数据的集合,对象中数据不受类型限制
+-对象包含:
+	函数(包含可执行的代码)
+	数组(有序的列表)
+	对象(属性的无序集合)
+-函数的基本特点:
+	
+	
+	可向函数传递任意参数
+	  	        形参:全称为"形式参数"是在定义函数名和函数体的时候使用的参数,目的是用来接收调用该函数时传如的参数.
+          		        实参:全称为"实际参数"是在调用时传递个该函数的参数.
+            		       常量参数  变量参数
+	可以通过return 语句返回值,其返回类型不需要声明
+	可把函数作为参数传递给另外一个函数
+	arguments.length 检测参数个数
+
+匿名函数 ,一次性函数,没有相关的引用及标识,执行后会被垃圾回收,所以效率高
+匿名函数,必须放在调用之前
+有名函数,可以出现在调用之后
+
+
+length属性表示数组长度,该属性时可自动更新,可读可写的,length>实际值,超出部分用undefined定义,length小于实际,length之外丢弃
+
+
+		Array 对象方法
+方法	描述
+concat()	连接两个或更多的数组，并返回结果。
+join()	把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+pop()	删除并返回数组的最后一个元素
+push()	向数组的末尾添加一个或更多元素，并返回新的长度。
+reverse()	颠倒数组中元素的顺序。
+shift()	删除并返回数组的第一个元素
+slice(start,end)	从某个已有的数组返回选定的元素 截取字符串 包含start 不含end 
+sort()	对数组的元素进行排序
+splice()	删除元素，并向数组添加新元素。
+toSource()	返回该对象的源代码。
+toString()	把数组转换为字符串，并返回结果。
+toLocaleString()	把数组转换为本地数组，并返回结果。
+unshift()	向数组的开头添加一个或更多元素，并返回新的长度。
+valueOf()	返回数组对象的原始值
+
+javascript有三种对象:
+内部对象:  Date.Math.String
+宿主对象: 执行javascript脚本环境提供的对象 又称浏览器对象 如document window等
+自定义对象:
+
+              2014-10-20
+object 对象
+ 可以修改 Object类型 让所有的对象具有一些通用的属性和方法
+------javascript不用通过创建一个类,然后实例化该类这种模式,对象的声明和定义即表示对象本身
+-------javascript通过new创建对象
+         工厂模式1
+         工厂模式2
+         工厂模式3   
+         构造函数
+	2014-10-21
+ HTML  DOM(文档对象模型)
+一document:
+	1.前景色背景色控制 fgcolor,bgcolor而在html里则是<body bgcolor="#66CC00" text="#3333FF">
+	2.domain:域名
+	3.lastModified:修改之后日期时间
+	4:title
+	5:URL
+对象方法:
+	 1.open() 
+	2.close()
+	 3.document.getElementById()	
+    	  4 .document.getElementsByName() 
+    	5.document.getElementsByTagName()
+
+
+document对象:
+all[]    返回所有元素；
+links[]      链接对象（<a>  <map>）；
+links[]     属性：host,hostname,href,pathname,port，search等；
+Images[]     属性：bordr,complete,height,hspace,lowsrc,name,src(可读可写)，vspace，width；
+anchor[]     Anchor对象(<a>标记)；
+forms[]      Forms对象；
+img[]        Image对象
+
+
+ history
+面包屑路径(前一页<<1<<2<<3<<4后一页)
+
+
+
+
+1.打开关闭窗口
+	window.open（“参数1”，“参数2”，“参数3”）；
+	window.close（）；   
+     
+2.移动窗口位置
+将窗口移动到指定便宜位置x，y（绝对移动）
+
+
+3.改变窗口大小
+绝对改变大小（改变大小到多少）：
+window.resizeTo(width , height)
+相对改变大小(改变大小多少)
+window.resizeBy(dw,dh)  
+移动位置到相对(0,0)点位置
+window .moveTo(,)
+4.在打开的窗口中传递数据   
+     
+
+
+navigator
+检测浏览器版本
+对象属性
+appName:浏览器的官方名称,兼容所有浏览器
+appVersion:
+对象方法:
+platform:操作系统
+javaEnabled:是否支持java
+
+Location 对象
+Location 对象包含有关当前 URL 的信息。
+
+Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。
+
+Note注意： 没有应用于Location对象的公开标准，不过所有浏览器都支持该对象。
+
+Location 对象属性
+属性	描述
+hash	返回一个URL的锚部分
+host	返回一个URL的主机名和端口
+hostname	返回URL的主机名
+href	返回完整的URL
+pathname	返回的URL路径名。
+port	返回一个URL服务器使用的端口号
+protocol	返回一个URL协议
+search	返回一个URL的查询部分
+Location 对象方法
+方法	说明
+assign()	载入一个新的文档
+reload()	重新载入当前文档
+replace()	用新的文档替换当前文档
+
+
+事件处理】
+
+事件Event是可以被js侦测到的
+
+
+浏览器事件主要有：Load事件、Unload事件、Submit事件
+
+<body onload="alert('唉')" onbeforeunload="alert('哎呀')">
+
+//onload  打开页面加载，弹出  唉 
+//onbeforeunload  关闭页面是加载，弹出  哎呀
+
+
+鼠标事件
+
+MouseDown事件：当鼠标某一个键被按下时，会发生MouseDown事件。此事件不区分鼠标左右键
+MouseUp事件：与MouseDown事件相反。在鼠标的某一个键被释放时自动发生。此事件不区分鼠标左右键
+MouseMove事件：
+MouseOver事件：
+MosesOut事件：
+Click事件： 单机是onclick，双击是ondbclick；
+focus事件：当鼠标点击一个选择框，文本框或文本输入区域是，相应的对象就会得到焦点，focus时间就会发生。
+blur事件：与focus相反。
+
+
+键盘事件：
+
+keyDown事件：
+keyUp事件：
+keyPress事件：
+onchange事件：当文本域内容发生改变的时候事件发生。
+
+visibility：hidden 元素被隐藏但还在
+	  ：visibale 元素被隐藏但位置还在
+	  ：disable 元素看不见也不存在
+
+
+
+【js计时】
+
+setTimeout（）；
+setInterval（）；
+clearTimeout（）；
+
+
+【this运算】
+
+
+
+
+适用对象事件属性链接事件处理程序
+
+2014-10-28
+Event对象】
+
+事件发生时，会产生一个临时对象Event。这个对象存储着事件行为的相关信息。
+
+产生event对象是一个线性的过程，当连续或同时有多个事件发生时，进会产生一个event对象。他和当前事件相关联，而不会对应多个事件产生多个event对象。
+
+在IE浏览器和firefox浏览器中使用方式不同
+
+	1.在IE中使用event对象是window对象的属性，可以直接引用
+
+	2.在firefox中，event对象必须被显式地传递给事件处理程序，他本身不是一个全局的概念
+
+	
+form :
+	Form 对象集合
+集合	描述
+elements[]	包含表单中所有元素的数组。
+Form 对象属性
+属性	描述
+acceptCharset	服务器可接受的字符集。
+action	设置或返回表单的 action 属性。
+enctype	设置或返回表单用来编码内容的 MIME 类型。
+id	设置或返回表单的 id。
+length	返回表单中的元素数目。
+method	设置或返回将数据发送到服务器的 HTTP 方法。
+name	设置或返回表单的名称。
+target	设置或返回表单提交结果的 Frame 或 Window 名。
+标准属性
+属性	描述
+className	设置或返回元素的 class 属性。
+dir	设置或返回文本的方向。
+lang	设置或返回元素的语言代码。
+title	设置或返回元素的 title 属性。
+Form 对象方法
+方法	描述
+reset()	把表单的所有输入元素重置为它们的默认值。
+submit()	提交表单。
+Form 对象事件句柄
+事件句柄	描述
+onreset	在重置表单元素之前调用。
+onsubmit	在提交表单之前调用。
+
+
+
+ javascript 引用一个表单元素可用两种方式
+ 	var element=theform.elements[index]
+	var element=theform.elements['elementName']
+
+文本域 值都在value中
+text
+password
+button
+textare 在<textarea>value</textare>
+
+默认选中 this.select()
+默认输入法
